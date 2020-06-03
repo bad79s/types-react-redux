@@ -26,7 +26,8 @@ import {
     ComponentType,
     StatelessComponent,
     Context,
-    NamedExoticComponent
+    NamedExoticComponent,
+    PropsWithChildren
 } from 'react';
 
 import {
@@ -108,7 +109,7 @@ export type GetProps<C> = C extends ComponentType<infer P>
 export type ConnectedComponent<
     C extends ComponentType<any>,
     P
-> = NamedExoticComponent<JSX.LibraryManagedAttributes<C, P>> & hoistNonReactStatics.NonReactStatics<C> & {
+> = NamedExoticComponent<PropsWithChildren<JSX.LibraryManagedAttributes<C, P>>> & hoistNonReactStatics.NonReactStatics<C> & {
     WrappedComponent: C;
 };
 
